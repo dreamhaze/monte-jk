@@ -22,3 +22,9 @@ gulp.task('browser-sync', function (){
     });
 });
 // 3. Следить за исполнениями исходных файлов и перезапускать сервер и сборкку нашего сайта
+gulp.task('jekyll:rebuild', [jekyll:build], function (){
+    bs.reload();
+});
+gulp.task('watch', function () {
+    gulp.watch('*.html', ['jekyll:rebuild']);
+});
